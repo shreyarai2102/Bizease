@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match design brief with gray-800 primary and blue-500 accent */
+  --background: #ffffff; /* Pure white */
+  --foreground: #1f2937; /* Gray-800 for main text */
+  --card: #f1f5f9; /* Light gray for checklist cards */
+  --card-foreground: #1f2937; /* Gray-800 for card text */
+  --popover: #ffffff; /* White for popover elements */
+  --popover-foreground: #1f2937; /* Gray-800 for popover text */
+  --primary: #3b82f6; /* Blue-500 for call-to-action buttons */
+  --primary-foreground: #ffffff; /* White text for primary buttons */
+  --secondary: #6b7280; /* Gray-500 for secondary actions */
+  --secondary-foreground: #ffffff; /* White text for secondary buttons */
+  --muted: #f1f5f9; /* Light gray for muted elements */
+  --muted-foreground: #6b7280; /* Gray-500 for muted text */
+  --accent: #3b82f6; /* Blue-500 accent color for highlights */
+  --accent-foreground: #ffffff; /* White text for accent elements */
+  --destructive: #dc2626; /* Red-600 for destructive actions */
+  --destructive-foreground: #ffffff; /* White text for destructive actions */
+  --border: #e5e7eb; /* Gray-200 for borders */
+  --input: #ffffff; /* White input field background */
+  --ring: rgba(59, 130, 246, 0.5); /* Blue-500 focus ring with opacity */
+  --chart-1: #3b82f6; /* Blue-500 for primary chart elements */
+  --chart-2: #60a5fa; /* Blue-400 for secondary chart elements */
+  --chart-3: #93c5fd; /* Blue-300 for tertiary chart elements */
+  --chart-4: #bfdbfe; /* Blue-200 for fourth chart elements */
+  --chart-5: #dbeafe; /* Blue-100 for fifth chart elements */
+  --radius: 0.5rem; /* Corner rounding for cards and buttons */
+  --sidebar: #f1f5f9; /* Light gray sidebar background */
+  --sidebar-foreground: #1f2937; /* Gray-800 sidebar text */
+  --sidebar-primary: #3b82f6; /* Blue-500 primary accent in sidebar */
+  --sidebar-primary-foreground: #ffffff; /* White text for primary sidebar items */
+  --sidebar-accent: #3b82f6; /* Blue-500 accent for highlighted sidebar items */
+  --sidebar-accent-foreground: #ffffff; /* White text for sidebar accents */
+  --sidebar-border: #e5e7eb; /* Gray-200 border for sidebar */
+  --sidebar-ring: rgba(59, 130, 246, 0.5); /* Blue-500 focus ring for sidebar elements */
+}
+
+.dark {
+  /* Updated dark mode colors to complement the blue theme */
+  --background: #0f172a; /* Slate-900 for dark background */
+  --foreground: #f1f5f9; /* Slate-100 for dark mode text */
+  --card: #1e293b; /* Slate-800 for dark cards */
+  --card-foreground: #f1f5f9; /* Slate-100 for dark card text */
+  --popover: #0f172a; /* Slate-900 for dark popovers */
+  --popover-foreground: #f1f5f9; /* Slate-100 for dark popover text */
+  --primary: #60a5fa; /* Blue-400 for dark mode primary */
+  --primary-foreground: #0f172a; /* Slate-900 for primary text in dark mode */
+  --secondary: #94a3b8; /* Slate-400 for dark mode secondary */
+  --secondary-foreground: #0f172a; /* Slate-900 for secondary text in dark mode */
+  --muted: #1e293b; /* Slate-800 for dark muted elements */
+  --muted-foreground: #94a3b8; /* Slate-400 for dark muted text */
+  --accent: #60a5fa; /* Blue-400 for dark mode accent */
+  --accent-foreground: #0f172a; /* Slate-900 for dark accent text */
+  --destructive: #f87171; /* Red-400 for dark mode destructive */
+  --destructive-foreground: #0f172a; /* Slate-900 for dark destructive text */
+  --border: #334155; /* Slate-700 for dark borders */
+  --input: #1e293b; /* Slate-800 for dark input backgrounds */
+  --ring: rgba(96, 165, 250, 0.5); /* Blue-400 focus ring for dark mode */
+  --chart-1: #60a5fa; /* Blue-400 for dark chart elements */
+  --chart-2: #93c5fd; /* Blue-300 for dark secondary chart */
+  --chart-3: #bfdbfe; /* Blue-200 for dark tertiary chart */
+  --chart-4: #1e293b; /* Slate-800 for dark fourth chart */
+  --chart-5: #ec4899; /* Pink-500 for dark fifth chart */
+  --sidebar: #1e293b; /* Slate-800 for dark sidebar */
+  --sidebar-foreground: #f1f5f9; /* Slate-100 for dark sidebar text */
+  --sidebar-primary: #334155; /* Slate-700 for dark sidebar primary */
+  --sidebar-primary-foreground: #f1f5f9; /* Slate-100 for dark sidebar primary text */
+  --sidebar-accent: #60a5fa; /* Blue-400 for dark sidebar accent */
+  --sidebar-accent-foreground: #0f172a; /* Slate-900 for dark sidebar accent text */
+  --sidebar-border: #334155; /* Slate-700 for dark sidebar border */
+  --sidebar-ring: rgba(96, 165, 250, 0.5); /* Blue-400 focus ring for dark sidebar */
+}
+
+@theme inline {
+  /* Updated font variables to use DM Sans as specified in design brief */
+  --font-sans: var(--font-dm-sans); /* DM Sans for headings and body text */
+  --font-serif: var(--font-dm-sans); /* DM Sans for consistency */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
