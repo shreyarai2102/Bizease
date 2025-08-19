@@ -64,137 +64,7 @@ export function ChatbotSection({ onBack }: ChatbotSectionProps) {
     scrollToBottom()
   }, [messages])
 
-  const generateBotResponse = (userMessage: string): Message => {
-    const lowerMessage = userMessage.toLowerCase()
 
-    // GST related queries
-    if (lowerMessage.includes("gst") || lowerMessage.includes("tax registration")) {
-      return {
-        id: Date.now().toString(),
-        type: "bot",
-        content:
-          "For GST registration, you'll need:\n\n• PAN Card\n• Aadhaar Card\n• Business address proof\n• Bank account details\n• Digital signature (for companies)\n\nGST registration is mandatory if your annual turnover exceeds ₹40 lakhs (₹20 lakhs for northeastern states). The process typically takes 3-7 working days.",
-        timestamp: new Date(),
-        links: [
-          { text: "Apply for GST Registration", url: "https://www.gst.gov.in/" },
-          { text: "GST Registration Guide", url: "https://www.gst.gov.in/registration" },
-        ],
-        suggestions: [
-          "What is the GST registration fee?",
-          "How to check GST registration status?",
-          "GST return filing requirements",
-        ],
-      }
-    }
-
-    // FSSAI related queries
-    if (lowerMessage.includes("fssai") || lowerMessage.includes("food license")) {
-      return {
-        id: Date.now().toString(),
-        type: "bot",
-        content:
-          "FSSAI license is mandatory for all food businesses. Requirements include:\n\n• Business registration documents\n• Layout plan of premises\n• Water test report\n• Medical certificates of food handlers\n• List of food products\n\nLicense types:\n• Basic Registration: ₹100 (turnover up to ₹12 lakhs)\n• State License: ₹2,000-7,500 (turnover ₹12 lakhs - ₹20 crores)\n• Central License: ₹7,500+ (turnover above ₹20 crores)",
-        timestamp: new Date(),
-        links: [
-          { text: "Apply for FSSAI License", url: "https://www.fssai.gov.in/" },
-          { text: "FSSAI License Types", url: "https://foscos.fssai.gov.in/" },
-        ],
-        suggestions: [
-          "FSSAI license renewal process",
-          "Food safety training requirements",
-          "FSSAI compliance checklist",
-        ],
-      }
-    }
-
-    // Trade license queries
-    if (lowerMessage.includes("trade license") || lowerMessage.includes("municipal license")) {
-      return {
-        id: Date.now().toString(),
-        type: "bot",
-        content:
-          "Trade license is required for operating any business premises. For Delhi:\n\n• Property ownership/rental documents\n• NOC from property owner\n• Identity and address proof\n• Passport size photographs\n• Business registration certificate\n\nFees: ₹500-2,000 depending on business type and area. License is valid for 1 year and must be renewed annually.",
-        timestamp: new Date(),
-        links: [
-          { text: "Delhi Trade License Portal", url: "https://www.delhi.gov.in/" },
-          { text: "Trade License Application", url: "https://delhioss.delhi.gov.in/" },
-        ],
-        suggestions: [
-          "Trade license renewal deadline",
-          "Documents for trade license renewal",
-          "Trade license fee structure",
-        ],
-      }
-    }
-
-    // Government schemes queries
-    if (lowerMessage.includes("scheme") || lowerMessage.includes("subsidy") || lowerMessage.includes("benefit")) {
-      return {
-        id: Date.now().toString(),
-        type: "bot",
-        content:
-          "Here are key government schemes for businesses:\n\n**MSME Registration (Udyam)**\n• Collateral-free loans up to ₹2 crore\n• Lower interest rates\n• Government tender preferences\n\n**Startup India**\n• 100% tax deduction for 3 years\n• Fast-track patent examination\n• Self-certification compliance\n\n**PMEGP Scheme**\n• 15-35% subsidy on project cost\n• Up to ₹15 lakh subsidy\n• Easy loan approval",
-        timestamp: new Date(),
-        links: [
-          { text: "Udyam Registration", url: "https://udyamregistration.gov.in/" },
-          { text: "Startup India Portal", url: "https://www.startupindia.gov.in/" },
-          { text: "PMEGP Scheme", url: "https://www.kviconline.gov.in/pmegpeportal/" },
-        ],
-        suggestions: ["MSME registration eligibility", "Startup India tax benefits", "How to apply for PMEGP subsidy"],
-      }
-    }
-
-    // Company registration queries
-    if (
-      lowerMessage.includes("company registration") ||
-      lowerMessage.includes("incorporation") ||
-      lowerMessage.includes("private limited")
-    ) {
-      return {
-        id: Date.now().toString(),
-        type: "bot",
-        content:
-          "For Private Limited Company registration:\n\n**Required Documents:**\n• DIN (Director Identification Number)\n• DSC (Digital Signature Certificate)\n• MOA (Memorandum of Association)\n• AOA (Articles of Association)\n• Registered office address proof\n\n**Process Timeline:** 10-15 working days\n**Government Fees:** ₹4,000-10,000\n\nThe process involves name reservation, document filing, and certificate issuance.",
-        timestamp: new Date(),
-        links: [
-          { text: "MCA Portal", url: "https://www.mca.gov.in/" },
-          { text: "Company Registration Guide", url: "https://www.mca.gov.in/content/mca/global/en/home.html" },
-        ],
-        suggestions: ["DIN application process", "Company name availability check", "MOA and AOA templates"],
-      }
-    }
-
-    // PAN Card queries
-    if (lowerMessage.includes("pan card") || lowerMessage.includes("pan application")) {
-      return {
-        id: Date.now().toString(),
-        type: "bot",
-        content:
-          "PAN Card is mandatory for all business transactions:\n\n**Required Documents:**\n• Identity proof (Aadhaar/Passport/Voter ID)\n• Address proof\n• Date of birth proof\n• Passport size photograph\n\n**Application Fee:** ₹110 (Indian address), ₹1,020 (foreign address)\n**Processing Time:** 1-2 weeks\n\nYou can apply online through NSDL or UTIITSL websites.",
-        timestamp: new Date(),
-        links: [
-          { text: "Apply for PAN - NSDL", url: "https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html" },
-          { text: "Apply for PAN - UTIITSL", url: "https://www.utiitsl.com/UTIITSL/portal/Home.jsp" },
-        ],
-        suggestions: ["PAN card correction process", "Track PAN application status", "Duplicate PAN card application"],
-      }
-    }
-
-    // Default response for unrecognized queries
-    return {
-      id: Date.now().toString(),
-      type: "bot",
-      content:
-        "I can help you with various business registration topics including:\n\n• Document requirements for licenses\n• Government schemes and subsidies\n• Registration processes and timelines\n• Compliance and renewal procedures\n• Fee structures and application links\n\nCould you please be more specific about what you'd like to know? For example, you can ask about GST registration, FSSAI license, trade license, company incorporation, or government schemes.",
-      timestamp: new Date(),
-      suggestions: [
-        "What documents do I need for GST registration?",
-        "Show me government schemes for startups",
-        "How to register a private limited company?",
-        "FSSAI license requirements for food business",
-      ],
-    }
-  }
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return
@@ -210,12 +80,41 @@ export function ChatbotSection({ onBack }: ChatbotSectionProps) {
     setInputMessage("")
     setIsTyping(true)
 
-    // Simulate typing delay
-    setTimeout(() => {
-      const botResponse = generateBotResponse(inputMessage)
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: inputMessage }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to get response from AI")
+      }
+
+      const data = await response.json()
+
+      const botResponse: Message = {
+        id: Date.now().toString(),
+        type: "bot",
+        content: data.response,
+        timestamp: new Date(),
+      }
+
       setMessages((prev) => [...prev, botResponse])
+    } catch (error) {
+      console.error("Error fetching bot response:", error)
+      const errorResponse: Message = {
+        id: Date.now().toString(),
+        type: "bot",
+        content: "Sorry, I'm having trouble connecting. Please try again later.",
+        timestamp: new Date(),
+      }
+      setMessages((prev) => [...prev, errorResponse])
+    } finally {
       setIsTyping(false)
-    }, 1500)
+    }
   }
 
   const handleSuggestionClick = (suggestion: string) => {
