@@ -205,7 +205,7 @@ export function ChatbotSection({ onBack }: ChatbotSectionProps) {
         </Card>
 
         {/* Chat Container */}
-        <Card className="h-[600px] flex flex-col">
+        <Card className="h-[400px] flex flex-col">
           <CardContent className="flex-1 p-0">
             {/* Messages Area */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 h-[500px]">

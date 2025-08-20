@@ -17,6 +17,7 @@ import {
   Star,
   ArrowRight,
   Mail,
+  XCircle
 } from "lucide-react"
 import { useState } from "react"
 
@@ -36,6 +37,24 @@ export function ComingSoonSection({ onBack }: ComingSoonSectionProps) {
   }
 
   const upcomingFeatures = [
+    {
+      title: "🏁 Closing Your Business",
+      description: "Complete business closure journey with legal, financial, and regulatory guidance",
+      icon : XCircle,
+      category: "Business Closure",
+      timeline: "Q1 2024",
+      features: [
+        "Step-by-step checklist for business closure",
+        "GST cancellation and tax clearances",
+        "Employee settlements & compliance handling",
+        "ROC/LLP closure forms digital submission",
+        "Closure compliance report generation",
+        "Penalty avoidance guidance",
+      ],
+      color: "bg-red-100 text-red-800 border-red-200",
+      detailedDescription:
+        "💡 We understand that winding up a business is not just about stopping operations – it involves legal, financial, and regulatory steps. 🔒 With our upcoming feature, you'll be able to get a step-by-step checklist for business closure, file for GST cancellation and tax clearances, handle employee settlements & compliance, submit ROC/LLP closure forms digitally, and generate a closure compliance report to avoid penalties. ✨ Just like our Business Setup Journey, the Business Closure Journey will guide you through every step.",
+    },
     {
       title: "Community Hub",
       description: "Connect with verified CA firms, legal advisors, and business consultants",
@@ -172,7 +191,7 @@ export function ComingSoonSection({ onBack }: ComingSoonSectionProps) {
             </p>
 
             {/* Notification Signup */}
-            <Card className="max-w-md mx-auto border-primary/20 bg-primary/5">
+           <Card className="max-w-md mx-auto border-primary/20 bg-primary/5">
               <CardContent className="p-6">
                 {!isSubscribed ? (
                   <div>
@@ -207,7 +226,7 @@ export function ComingSoonSection({ onBack }: ComingSoonSectionProps) {
       </section>
 
       {/* Upcoming Features */}
-      <section className="py-16 px-4">
+     <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-sans font-bold text-foreground mb-4">What's Coming Next</h2>
@@ -257,7 +276,7 @@ export function ComingSoonSection({ onBack }: ComingSoonSectionProps) {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-16 px-4 bg-card">
+     <section className="py-16 px-4 bg-card">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-sans font-bold text-foreground mb-4">Development Roadmap</h2>
@@ -323,7 +342,7 @@ export function ComingSoonSection({ onBack }: ComingSoonSectionProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-primary">
+     <section className="py-16 px-4 bg-primary">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-sans font-bold text-primary-foreground mb-4">Stay Updated on New Features</h2>
           <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
@@ -355,3 +374,5 @@ export function ComingSoonSection({ onBack }: ComingSoonSectionProps) {
     </div>
   )
 }
+
+
